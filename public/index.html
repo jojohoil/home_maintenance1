@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دورة الصيانة المنزلية – مركز المزروعية | جمعية البر بالأحساء</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="config.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+<div id="toast"></div>
+<header>
+  <div class="brand">
+    <img src="assets/logo.png" alt="شعار المركز">
+    <div>
+      <h1>دورة الصيانة المنزلية – قسم البرامج التنموية | مركز المزروعية | جمعية البر بالأحساء</h1>
+      <div class="sub">جميع الحقوق محفوظة © 2025 بدر الحويل – مركز المزروعية – جمعية البر بالأحساء – 0563809007</div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card hero">
+    <div class="cta">
+      <h2>مرحبًا بكم 👋</h2>
+      <p>ابدأ رحلتك التدريبية الآن. أكمل البيانات، شاهد المقاطع، أجب عن الاختبار، ثم قيّم الدورة.</p>
+      <button class="btn" id="scrollStart">ابدأ الدورة</button>
+    </div>
+    <div>
+      <div class="progress" aria-label="تقدم الدورة"><div id="bar"></div></div>
+      <div class="note">تحديث تلقائي لتقدمك بعد كل خطوة</div>
+    </div>
+  </div>
+
+  <div class="card" id="formCard">
+    <h3>بيانات التسجيل</h3>
+    <div class="grid">
+      <div><label for="name">الاسم الرباعي</label><input id="name" type="text" required></div>
+      <div><label for="idNumber">رقم الهوية (سعودية فقط)</label><input id="idNumber" type="text" inputmode="numeric" required></div>
+      <div><label for="phone">رقم الجوال</label><input id="phone" type="tel" required></div>
+      <div><label for="email">البريد الإلكتروني</label><input id="email" type="email" required></div>
+      <div><label for="birthdate">تاريخ الميلاد</label><input id="birthdate" type="date" required></div>
+    </div>
+    <div class="step-nav">
+      <button class="btn" id="startBtn">التالي</button>
+    </div>
+  </div>
+
+  <div class="card hidden" id="video1Card">
+    <h3>الفيديو الأول</h3>
+    <iframe src="https://www.youtube.com/embed/vDKIZSDhw7o?si=6_5S4QQSuybIhpdt" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="step-nav">
+      <button class="btn ghost" id="prevVideo1">السابق</button>
+      <button class="btn secondary" id="nextVideo1">التالي</button>
+    </div>
+  </div>
+
+  <div class="card hidden" id="video2Card">
+    <h3>الفيديو الثاني</h3>
+    <iframe src="https://www.youtube.com/embed/c-w7DCEjQb4?si=ruS7cfqmHACuLFH5" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="step-nav">
+      <button class="btn ghost" id="prevVideo2">السابق</button>
+      <button class="btn secondary" id="nextVideo2">التالي</button>
+    </div>
+  </div>
+
+  <div class="card hidden" id="quizCard">
+    <h3>اختبار قصير (3 أسئلة)</h3>
+    <div><p>1- يجب فصل التيار الكهربائي للجهاز المراد صيانته</p><label><input type="radio" name="q1" value="نعم"> نعم</label><label><input type="radio" name="q1" value="لا"> لا</label></div>
+    <div><p>2- يجب لبس القفاز وأدوات السلامة قبل البدء في الصيانة</p><label><input type="radio" name="q2" value="نعم"> نعم</label><label><input type="radio" name="q2" value="لا"> لا</label></div>
+    <div><p>3- لا بأس من وجود الأطفال بالقرب منك أثناء الصيانة</p><label><input type="radio" name="q3" value="صح"> صح</label><label><input type="radio" name="q3" value="خطأ"> خطأ</label></div>
+    <div class="step-nav">
+      <button class="btn ghost" id="prevQuiz">السابق</button>
+      <button class="btn" id="resultBtn">عرض النتيجة</button>
+    </div>
+    <p id="result"></p><p id="resultNote"></p>
+  </div>
+
+  <div class="card hidden" id="ratingCard">
+    <h3>تقييم الدورة</h3>
+    <p>ما مدى رضاك عن مقدم الدورة؟</p>
+    <div class="range-wrap"><span class="emoji">😞</span><input type="range" min="1" max="5" step="1" id="rate1" value="3"><span class="emoji">😊</span></div>
+    <p>ما مدى رضاك عن محتوى الدورة؟</p>
+    <div class="range-wrap"><span class="emoji">😞</span><input type="range" min="1" max="5" step="1" id="rate2" value="3"><span class="emoji">😊</span></div>
+    <div class="step-nav">
+      <button class="btn ghost" id="prevRating">السابق</button>
+      <button class="btn" id="finishBtn">إنهاء الدورة</button>
+    </div>
+  </div>
+
+  <div class="card hidden" id="doneCard">
+    <h3>شكرًا لمشاركتك!</h3>
+    <p>تم حفظ إدخالاتك بنجاح ✅</p>
+    <div id="saveStatus"></div>
+    <div class="step-nav">
+      <a href="index.html"><button class="btn secondary">إعادة البدء</button></a>
+    </div>
+  </div>
+</div>
+
+<div class="admin-fab" title="الإدارة" onclick="openAdmin()">⚙️</div>
+<footer class="footer-2025">جميع الحقوق محفوظة © 2025 بدر الحويل – مركز المزروعية – جمعية البر بالأحساء – 0563809007</footer>
+</body>
+</html>

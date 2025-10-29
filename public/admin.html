@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة الدورة – الصيانة المنزلية</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script defer src="config.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="assets/logo.png" alt="شعار المركز">
+    <div>
+      <h1>دورة الصيانة المنزلية – قسم البرامج التنموية | مركز المزروعية | جمعية البر بالأحساء</h1>
+      <div class="sub">📊 إحصاءات الدورة التدريبية – الصيانة المنزلية</div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <div class="lock">
+      <input id="adminPass" type="password" aria-label="كلمة المرور">
+      <button class="btn" id="unlock">دخول</button>
+      <a href="index.html" style="margin-right:auto"><button class="btn ghost">العودة للواجهة</button></a>
+    </div>
+    <div id="adminArea" class="hidden">
+      <div class="stats">
+        <div class="stat-card"><h4>عدد المشاركين</h4><div class="value" id="stat_total">0</div></div>
+        <div class="stat-card"><h4>نسبة النجاح</h4><div class="value" id="stat_pass">0%</div></div>
+        <div class="stat-card"><h4>متوسط تقييم المقدم</h4><div class="value" id="stat_rate_presenter">0</div></div>
+        <div class="stat-card"><h4>متوسط تقييم المحتوى</h4><div class="value" id="stat_rate_content">0</div></div>
+      </div>
+      <div class="card"><canvas id="pieChart" height="220"></canvas></div>
+      <div class="card">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" id="refresh">🔁 تحديث</button>
+          <button class="btn secondary" id="exportExcel">تصدير Excel</button>
+        </div>
+        <div style="overflow:auto;margin-top:10px">
+          <table class="table" id="tbl">
+            <thead>
+              <tr>
+                <th>الاسم</th><th>الهوية</th><th>الجوال</th><th>البريد</th><th>الميلاد</th>
+                <th>إجابة1</th><th>إجابة2</th><th>إجابة3</th><th>النتيجة</th>
+                <th>تقييم مقدم</th><th>تقييم محتوى</th><th>وقت الإنهاء</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-2025">جميع الحقوق محفوظة © 2025 بدر الحويل – مركز المزروعية – جمعية البر بالأحساء – 0563809007</footer>
+</body>
+</html>
